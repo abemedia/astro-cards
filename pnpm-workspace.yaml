@@ -1,0 +1,7 @@
+packages:
+  - test/fixtures/*
+
+allowBuilds:
+  esbuild: false
+  sharp: false
+  workerd: false

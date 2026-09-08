@@ -1,0 +1,69 @@
+{
+  "name": "astro-cards",
+  "description": "Generate Open Graph images from Astro components, at build time or on demand.",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Adam Bouqdib <adam@abemedia.co.uk>",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./runtime": "./dist/runtime.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "prepare": "stagelint init",
+    "build": "tsdown src/index.ts src/runtime.ts src/endpoint.ts --no-fixed-extension --deps.never-bundle virtual:astro-cards",
+    "prepack": "pnpm build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "biome format --write .",
+    "lint": "biome lint --write .",
+    "check": "biome check . && tsc --noEmit"
+  },
+  "keywords": [
+    "astro-integration",
+    "withastro",
+    "astro",
+    "image",
+    "images",
+    "ui",
+    "seo",
+    "open-graph",
+    "opengraph",
+    "social-image",
+    "og-image",
+    "social-card",
+    "twitter-card",
+    "image-generation",
+    "takumi"
+  ],
+  "peerDependencies": {
+    "astro": "^5.1.5 || ^6.0.0 || ^7.0.0"
+  },
+  "dependencies": {
+    "@astrojs/internal-helpers": "^0.11.0",
+    "@takumi-rs/helpers": "2.13.5",
+    "devalue": "^5.9.2",
+    "takumi-js": "2.13.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.12",
+    "@stagelint/stagelint": "^0.1.5",
+    "@types/jest-image-snapshot": "^6.4.1",
+    "@types/node": "^22.20.1",
+    "astro": "^7.3.1",
+    "jest-image-snapshot": "^6.5.2",
+    "sharp": "^0.35.4",
+    "tsdown": "^0.23.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.0"
+  }
+}

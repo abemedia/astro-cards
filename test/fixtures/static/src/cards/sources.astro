@@ -1,0 +1,23 @@
+---
+export const card = { width: 300, height: 100 }
+---
+
+<div class="card">
+  <img src="photo.png" width="100" height="100" alt="">
+  <div style="width: 100px; height: 100px; background: url(./photo.png)"></div>
+  <div class="sheet"></div>
+</div>
+
+<style is:inline>
+.card {
+  display: flex;
+  width: 300px;
+  height: 100px;
+  background: #000000;
+}
+.sheet {
+  width: 100px;
+  height: 100px;
+  background-image: url(/photo.png);
+}
+</style>

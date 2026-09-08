@@ -1,0 +1,41 @@
+---
+import { Font } from 'astro:assets'
+
+interface Props {
+  title?: string
+  tone?: string
+}
+
+export const card = { width: 400, height: 200 }
+
+const { title = 'untitled', tone = '#d98e4a' } = Astro.props
+---
+
+<Font cssVariable="--font-test" />
+<div class="card" style={`background:${tone}`}>
+  <div class="title">{title}</div>
+  {/* Latin, Cyrillic and Greek: each routes to a different `unicode-range` subset. */}
+  <div class="scripts">Ag Бв Δξ</div>
+</div>
+
+<style is:inline>
+.card {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-test);
+  color: #ffffff;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+.scripts {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+</style>

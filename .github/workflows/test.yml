@@ -1,0 +1,56 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm ci
+
+      - name: Run Biome
+        run: pnpm biome ci
+
+      - name: Build
+        run: pnpm build
+
+      - name: Run Type Check
+        run: pnpm tsc --noEmit
+
+      - name: Test
+        run: pnpm test
+
+      - name: Upload snapshot diffs
+        if: failure()
+        uses: actions/upload-artifact@v5
+        with:
+          name: image-snapshot-diffs
+          path: test/**/__diff_output__/**
+          if-no-files-found: ignore

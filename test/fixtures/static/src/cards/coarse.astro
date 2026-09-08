@@ -1,0 +1,29 @@
+---
+import { Font } from 'astro:assets'
+
+interface Props {
+  title?: string
+}
+
+// Identical to `plain` apart from this, so a size difference can only come from the cascade.
+export const card = { quality: 10 }
+
+const { title = 'plain' } = Astro.props
+---
+
+<Font cssVariable="--font-test" />
+<div class="card">{title}</div>
+
+<style is:inline>
+.card {
+  width: 100%;
+  height: 100%;
+  background: #226644;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-test);
+  font-size: 40px;
+}
+</style>
