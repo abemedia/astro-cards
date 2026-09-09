@@ -19,7 +19,7 @@ updates:
           - '@astrojs/*'
       takumi:
         patterns:
-          - takumi
+          - takumi-js
           - '@takumi-rs/*'
       dev-dependencies:
         dependency-type: development
