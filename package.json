@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@astrojs/internal-helpers": "^0.11.0",
-    "@takumi-rs/helpers": "2.13.5",
+    "@takumi-rs/helpers": "2.13.6",
     "devalue": "^5.9.2",
     "takumi-js": "2.13.5"
   },
