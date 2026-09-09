@@ -1,0 +1,11 @@
+{
+  "name": "test-static",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fontsource/roboto": "^5.2.0",
+    "astro": "^7.3.1",
+    "astro-cards": "workspace:*"
+  }
+}

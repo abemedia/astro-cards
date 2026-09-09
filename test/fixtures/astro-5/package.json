@@ -1,0 +1,11 @@
+{
+  "name": "test-astro-5",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@astrojs/node": "9.0.2",
+    "astro": "5.1.5",
+    "astro-cards": "workspace:*"
+  }
+}

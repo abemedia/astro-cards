@@ -1,0 +1,59 @@
+---
+import { Font } from 'astro:assets'
+
+interface Props {
+  image: ImageMetadata
+}
+
+export const card = { width: 400, height: 200, format: 'png' }
+
+const { image } = Astro.props
+---
+
+<Font cssVariable="--font-test" />
+<div class="card">
+  <div class="row">
+    <img src={image.src} width="100" height="100" alt="">
+    <img src="/photo.png" width="100" height="100" alt="">
+    <div class="sheet"></div>
+  </div>
+  <div class="row text">
+    <div class="title">Smoke</div>
+    {/* Latin, Cyrillic and Greek: each routes to a different `unicode-range` subset. */}
+    <div class="scripts">Ag Бв Δξ</div>
+  </div>
+</div>
+
+<style is:inline>
+.card {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  background: #17171a;
+  color: #ffffff;
+  font-family: var(--font-test);
+}
+.row {
+  display: flex;
+  height: 100px;
+}
+.sheet {
+  width: 100px;
+  height: 100px;
+  background-image: url(/photo.png);
+}
+.text {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+.scripts {
+  font-size: 24px;
+  font-weight: 400;
+}
+</style>

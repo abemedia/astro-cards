@@ -1,0 +1,67 @@
+---
+interface Props {
+  title?: string
+  tone?: string
+}
+
+export const card = { width: 400, height: 200 }
+
+const { title = 'untitled', tone = '#d98e4a' } = Astro.props
+---
+
+<div class="card" style={`background:${tone}`}>
+  <div class="title">{title}</div>
+  <div class="scripts">Ag Бв Δξ</div>
+</div>
+
+<style is:inline>
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/roboto-latin-400-normal.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/roboto-cyrillic-400-normal.woff2) format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/roboto-greek-400-normal.woff2) format("woff2");
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/roboto-latin-700-normal.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.card {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+.scripts {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+</style>

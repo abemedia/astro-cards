@@ -1,0 +1,22 @@
+---
+// Never rendered: `astro check` over this fixture is what asserts it.
+import { renderCard } from 'astro-cards/runtime'
+
+const badge = await renderCard('badge', { label: 'Ada' })
+const ticket = await renderCard('ticket', { seat: 12 })
+
+// @ts-expect-error - no card of that name in this fixture
+await renderCard('nope', { label: 'Ada' })
+
+// @ts-expect-error - `label` belongs to `badge`, not to `ticket`
+await renderCard('ticket', { label: 'Ada' })
+
+// @ts-expect-error - `seat` is a number
+await renderCard('ticket', { seat: '12' })
+
+// @ts-expect-error - `badge` requires `label`
+await renderCard('badge', {})
+---
+
+<img src={badge.src} alt="">
+<img src={ticket.src} alt="">

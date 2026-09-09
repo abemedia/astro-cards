@@ -1,0 +1,11 @@
+---
+interface Props {
+  label: string
+}
+
+export const card = { width: 200, height: 100 }
+
+const { label } = Astro.props
+---
+
+<div style="width:200px;height:100px;display:flex;color:#fff;background:#222">{label}</div>

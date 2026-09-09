@@ -1,0 +1,12 @@
+{
+  "name": "test-cloudflare",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.2.6",
+    "astro": "^7.3.1",
+    "astro-cards": "workspace:*",
+    "wrangler": "^4.128.0"
+  }
+}

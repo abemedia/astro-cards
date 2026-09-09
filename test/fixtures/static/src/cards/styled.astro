@@ -1,0 +1,37 @@
+---
+export const card = { width: 300, height: 300 }
+---
+
+<div class="card">
+  <div class="panel">
+    <div class="dot"></div>
+  </div>
+</div>
+
+<style is:inline>
+.card {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #17171a 0%, #d98e4a 100%);
+}
+.panel {
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+  border: 4px solid #f5f3ef;
+  background: rgba(245, 243, 239, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dot {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background: #3355ff;
+  opacity: 0.7;
+}
+</style>

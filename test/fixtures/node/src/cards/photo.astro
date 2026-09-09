@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+  image: ImageMetadata
+  focal?: string
+}
+
+export const card = { width: 200, height: 200 }
+
+const { image, focal = 'left top' } = Astro.props
+---
+
+<div class="card">
+  <Image
+    class="photo"
+    src={image}
+    width={card.width}
+    height={card.height}
+    fit="cover"
+    position={focal}
+    layout="none"
+    alt=""
+  />
+</div>
+
+<style is:inline>
+.card {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+}
+.photo {
+  width: 200px;
+  height: 200px;
+}
+</style>
