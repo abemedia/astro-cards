@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@astrojs/node": "9.0.2",
+    "@astrojs/node": "11.0.2",
     "astro": "5.1.5",
     "astro-cards": "workspace:*"
   }
