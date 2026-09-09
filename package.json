@@ -52,7 +52,7 @@
     "@astrojs/internal-helpers": "^0.11.0",
     "@takumi-rs/helpers": "2.13.5",
     "devalue": "^5.9.2",
-    "takumi-js": "2.13.5"
+    "takumi-js": "2.13.6"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.12",
