@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@astrojs/node": "9.0.2",
-    "astro": "5.1.5",
+    "astro": "7.2.8",
     "astro-cards": "workspace:*"
   }
 }
