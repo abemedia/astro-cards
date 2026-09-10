@@ -161,11 +161,11 @@ export default function cards(options: CardsOptions = {}): AstroIntegration {
         const entries = found
           .map(
             ({ name, path }) =>
-              `    ${JSON.stringify(name)}: typeof import(${JSON.stringify(path)}).default`,
+              `    ${JSON.stringify(name)}: import('astro/types').ComponentProps<typeof import(${JSON.stringify(path)}).default>`,
           )
           .join('\n')
 
-        const content = `export {}\ndeclare module 'astro-cards/runtime' {\n  interface Cards {\n${entries}\n  }\n}\n`
+        const content = `export {}\ndeclare module 'astro-cards/runtime' {\n  interface CardProps {\n${entries}\n  }\n}\n`
         const types = injectTypes({ filename: 'cards.d.ts', content })
 
         // A dev reload re-runs this hook but not the sync that writes the types.

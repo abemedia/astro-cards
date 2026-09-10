@@ -4,7 +4,6 @@ import {
   prependForwardSlash,
   removeTrailingForwardSlash,
 } from '@astrojs/internal-helpers/path'
-import type { ComponentProps } from 'astro/types'
 import { type CardOptions, loadCard } from './card.js'
 import { encodePayload } from './payload.js'
 import type { PendingCard } from './render.js'
@@ -16,9 +15,9 @@ export interface CardResult {
   type: string
 }
 
-/** The project's cards, filled in by the declaration `astro sync` generates. */
+/** Each card's props, keyed by card name. */
 // biome-ignore lint/suspicious/noEmptyInterface: only an interface can merge with that declaration
-export interface Cards {}
+export interface CardProps {}
 
 // biome-ignore lint/suspicious/noControlCharactersInRegex: Astro's image filename set, copied verbatim
 const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$%&*+,:;<=>?[\]^`{|}\u007F]/g
@@ -27,9 +26,9 @@ const COLLECTOR = Symbol.for('astro-cards.collector')
 const globals = globalThis as { [COLLECTOR]?: string }
 
 /** Resolves a card to what a page embeds: its `src`, size and MIME type. */
-export async function renderCard<K extends keyof Cards & string>(
+export async function renderCard<K extends keyof CardProps & string>(
   name: K,
-  props: ComponentProps<Cards[K]>,
+  props: CardProps[K],
   options: CardOptions = {},
 ): Promise<CardResult> {
   if (!Object.hasOwn(cards, name)) {
