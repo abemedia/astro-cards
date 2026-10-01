@@ -7,6 +7,6 @@
     "@astrojs/cloudflare": "^14.3.3",
     "astro": "^7.3.5",
     "astro-cards": "workspace:*",
-    "wrangler": "^4.128.0"
+    "wrangler": "^4.143.0"
   }
 }
