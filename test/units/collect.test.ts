@@ -81,7 +81,7 @@ describe('collectSources', () => {
     ])
   })
 
-  test('decodes entities in src, keyed by the raw attribute takumi matches on', () => {
+  test('decodes character references in markup but not in a stylesheet', () => {
     const found = collect(`
       <img src="/x?a=1&amp;b=2&#x2F;c&#39;d" />
       <div style="background: url(/y?a=1&amp;b=2)"></div>
@@ -89,7 +89,7 @@ describe('collectSources', () => {
     `)
 
     expect(found.entries().toArray()).toEqual([
-      ['/x?a=1&amp;b=2&#x2F;c&#39;d', 'https://site.test/x?a=1&b=2/c%27d'],
+      ["/x?a=1&b=2/c'd", 'https://site.test/x?a=1&b=2/c%27d'],
       ['/y?a=1&b=2', 'https://site.test/y?a=1&b=2'],
       ['/z?a=1&amp;b=2', 'https://site.test/z?a=1&amp;b=2'],
     ])

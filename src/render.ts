@@ -35,13 +35,13 @@ const FONT_FACE = /@font-face\s*\{([^}]*)\}/g
 export function collectSources(node: Node, css: string[], base: string): Map<string, string> {
   const found = new Map<string, string>()
 
-  const add = (raw: string, value = raw) => {
-    if (value.startsWith('data:') || value.startsWith('#')) return
-    const url = new URL(value, base)
+  const add = (src: string) => {
+    if (src.startsWith('data:') || src.startsWith('#')) return
+    const url = new URL(src, base)
     if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-      throw new Error(`unsupported image URL "${value}"`)
+      throw new Error(`unsupported image URL "${src}"`)
     }
-    found.set(raw, url.href)
+    found.set(src, url.href)
   }
 
   const scan = (value: unknown) => {
@@ -56,8 +56,7 @@ export function collectSources(node: Node, css: string[], base: string): Map<str
     for (const value of Object.values(node.style ?? {})) scan(value)
     for (const value of Object.values(node.preset ?? {})) scan(value)
     scan(node.tw)
-    // Takumi copies `src` raw but decodes entities into `attributes`, as it does for text.
-    if (node.type === 'image' && typeof node.src === 'string') add(node.src, node.attributes?.src)
+    if (node.type === 'image' && typeof node.src === 'string') add(node.src)
     if (node.type === 'container') for (const child of node.children ?? []) visit(child)
   }
 
