@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@astrojs/cloudflare": "^14.3.3",
-    "astro": "^7.3.5",
+    "@astrojs/cloudflare": "^14.4.1",
+    "astro": "^7.4.1",
     "astro-cards": "workspace:*",
-    "wrangler": "^4.143.0"
+    "wrangler": "^4.151.2"
   }
 }

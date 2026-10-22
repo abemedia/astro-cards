@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "astro": "^7.3.5",
+    "astro": "^7.4.1",
     "astro-cards": "workspace:*"
   }
 }
