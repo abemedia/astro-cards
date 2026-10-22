@@ -3,12 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "astro": "^7.3.5",
-    "astro-cards": "workspace:*"
-  },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "astro": "^7.3.5",
+    "astro-cards": "workspace:*",
     "typescript": "^6.0.3"
   }
 }
