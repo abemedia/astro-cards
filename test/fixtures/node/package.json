@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "dependencies": {
+  "devDependencies": {
     "@astrojs/node": "^11.1.6",
     "astro": "^7.3.5",
     "astro-cards": "workspace:*"
