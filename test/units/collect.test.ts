@@ -133,16 +133,14 @@ describe('collectFonts', () => {
 
     expect(found).toEqual([
       {
-        name: expect.stringMatching(/^Roboto s[0-9a-f]{8}$/),
-        subsetOf: 'Roboto',
-        subsetRank: 0,
+        name: 'Roboto',
         key: expect.stringMatching(
           /^Roboto s[0-9a-f]{8}:400:normal:https:\/\/site\.test\/_astro\/fonts\/a\.woff2$/,
         ),
         url: 'https://site.test/_astro/fonts/a.woff2',
         weight: 400,
         style: 'normal',
-        ranges: [
+        unicodeRange: [
           [0, 0xff],
           [0x20ac, 0x20ac],
         ],
@@ -150,32 +148,25 @@ describe('collectFonts', () => {
     ])
   })
 
-  test('ranks a subset by its lowest codepoint, and one without a range last', () => {
-    const ranks = faces(`
-      @font-face { font-family: R; src: url(cyr.woff2); unicode-range: U+0400-045F, U+0490-0491 }
-      @font-face { font-family: R; src: url(latin.woff2); unicode-range: U+0000-00FF }
-      @font-face { font-family: R; src: url(all.woff2) }
-    `).map((face) => face.subsetRank)
-
-    expect(ranks).toEqual([0x400, 0, 0xffffffff])
-  })
-
   test('expands a wildcard range', () => {
     const [face] = faces('@font-face { font-family: R; src: url(a.woff2); unicode-range: U+30?? }')
 
-    expect(face?.ranges).toEqual([[0x3000, 0x30ff]])
+    expect(face?.unicodeRange).toEqual([[0x3000, 0x30ff]])
   })
 
-  test('groups the weights of a subset into one family', () => {
-    const [latin, cyrillic, latinBold] = faces(`
+  test('registers every subset and weight under the family name', () => {
+    const found = faces(`
       /* latin */
       @font-face { font-family: R; src: url(l400.woff2); font-weight: 400; unicode-range: U+0000-00FF }
       @font-face { font-family: R; src: url(c400.woff2); font-weight: 400; unicode-range: U+0400-045F }
       @font-face { font-family: R; src: url(l700.woff2); font-weight: 700; unicode-range: U+0000-00FF }
-    `).map((face) => face.name)
+    `)
 
-    expect(latinBold).toBe(latin)
-    expect(cyrillic).not.toBe(latin)
+    expect(found.map(({ name, weight, unicodeRange }) => [name, weight, unicodeRange])).toEqual([
+      ['R', 400, [[0, 0xff]]],
+      ['R', 400, [[0x400, 0x45f]]],
+      ['R', 700, [[0, 0xff]]],
+    ])
   })
 
   test('collapses only the faces that differ by weight alone', () => {
@@ -190,7 +181,7 @@ describe('collectFonts', () => {
     `)
 
     expect(
-      found.map(({ subsetOf, style, weight, ranges }) => [subsetOf, style, weight, ranges]),
+      found.map(({ name, style, weight, unicodeRange }) => [name, style, weight, unicodeRange]),
     ).toEqual([
       ['V', 'normal', undefined, []],
       ['V', 'italic', 400, []],
