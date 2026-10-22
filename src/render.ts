@@ -110,7 +110,7 @@ export function collectFonts(css: string[], base: string): FontFace[] {
     url: string
     weight?: number
     style?: string
-    ranges: [number, number][]
+    unicodeRange: [number, number][]
   }[] = []
 
   for (const sheet of css) {
@@ -131,7 +131,7 @@ export function collectFonts(css: string[], base: string): FontFace[] {
         // Two numbers mark a variable font, whose axis serves every weight.
         weight: weight && !weight[2] ? Number(weight[1]) : undefined,
         style: body.match(/font-style:\s*([a-z]+)/i)?.[1],
-        ranges,
+        unicodeRange: ranges,
       })
     }
   }
@@ -154,10 +154,7 @@ export function collectFonts(css: string[], base: string): FontFace[] {
   }
 
   return merged.map(({ family, subset, ...face }) => ({
-    name: `${family} ${subset}`,
-    subsetOf: family,
-    // Lowest codepoint first puts `latin` before the subsets whose cmaps also encode Latin capitals.
-    subsetRank: face.ranges.length ? Math.min(...face.ranges.map(([lo]) => lo)) : 0xffffffff,
+    name: family,
     key: `${family} ${subset}:${face.weight ?? ''}:${face.style ?? ''}:${face.url}`,
     ...face,
   }))
@@ -201,7 +198,7 @@ export async function rasterise(card: PendingCard, env: RenderEnv): Promise<Uint
         fetchOk(url, { fetch: resolve }).then((r) => readBodyLimited(r, defaultMaxFetchBytes)),
     }))
 
-    // Takumi has no fonts of its own, so text in a card that declares none would draw nothing.
+    // Takumi's built-in Geist covers little beyond Latin-1, so a card with no faces gets Noto Sans.
     if (!fonts.length && hasText(node)) {
       const name = 'Noto Sans'
       const fallback = await googleFonts([{ name, weight: '100..900' }]).catch((cause: unknown) => {

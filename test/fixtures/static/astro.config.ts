@@ -10,7 +10,7 @@ export default defineConfig({
       cssVariable: '--font-test',
       weights: [400, 700],
       styles: ['normal'],
-      // Three subsets exercise the `subsetOf` grouping.
+      // Three subsets exercise the `unicodeRange` grouping.
       subsets: ['latin', 'cyrillic', 'greek'],
     },
   ],
