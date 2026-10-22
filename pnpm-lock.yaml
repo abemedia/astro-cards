@@ -35,7 +35,7 @@ importers:
         version: 22.20.5
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       jest-image-snapshot:
         specifier: ^6.5.2
         version: 6.5.2
@@ -80,10 +80,10 @@ importers:
     devDependencies:
       '@astrojs/cloudflare':
         specifier: ^14.4.1
-        version: 14.4.1(@types/node@22.20.5)(astro@7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(esbuild@0.28.2)(wrangler@4.151.2(@types/node@22.20.5))(yaml@2.9.1)
+        version: 14.4.1(@types/node@22.20.5)(astro@7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(esbuild@0.28.2)(wrangler@4.151.2(@types/node@22.20.5))(yaml@2.9.1)
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -95,7 +95,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -104,7 +104,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -113,10 +113,10 @@ importers:
     devDependencies:
       '@astrojs/node':
         specifier: ^11.1.9
-        version: 11.1.9(astro@7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(supports-color@10.2.2)
+        version: 11.1.9(astro@7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(supports-color@10.2.2)
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -125,7 +125,7 @@ importers:
     devDependencies:
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -137,7 +137,7 @@ importers:
         version: 5.3.0
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -149,7 +149,7 @@ importers:
         version: 0.9.11(@emnapi/runtime@1.11.3)(prettier@3.9.6)(typescript@6.0.3)
       astro:
         specifier: ^7.4.1
-        version: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+        version: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       astro-cards:
         specifier: workspace:*
         version: link:../../..
@@ -279,8 +279,8 @@ packages:
   '@astrojs/markdown-remark@7.0.0':
     resolution: {integrity: sha512-jTAXHPy45L7o1ljH4jYV+ShtOHtyQUa1mGp3a5fJp1soX8lInuTJQ6ihmldHzVM4Q7QptU4SzIDIcKbBJO7sXQ==}
 
-  '@astrojs/markdown-satteri@0.4.4':
-    resolution: {integrity: sha512-Byhe9CAiGFJrhMACKpgN/FPf4lcwapqwFQAB7E1sPELTEJINfBIpgnEYOBTXzr//fvSSNhfp/X3AqN4mUV9p+A==}
+  '@astrojs/markdown-satteri@0.4.5':
+    resolution: {integrity: sha512-0IeGdoFbv0f+442KJhYS44Wg8F3MuHmRsxIEYuFyqkjRubc6dPBFZ7azor5t4AeXLQoT5A5h9HyViKpd70Dl9w==}
 
   '@astrojs/node@10.0.2':
     resolution: {integrity: sha512-utZCETOanWnrJWy6X6xFk+/wvOdZyPvgymV/wEN+SKRzEomg5q+VkkcsIv/6jkCHFvlXyjXRmPwt/oluT5cpcg==}
@@ -305,9 +305,9 @@ packages:
     resolution: {integrity: sha512-NndtNPpxaGinRpRytljGBvYHpTOwHycSZ/c+lQi5cHvkqqrHKWdkPEhImlODBNmbuB+vyQUNUDXyjzt66CihJg==}
     engines: {node: ^20.19.1 || >=22.12.0}
 
-  '@astrojs/prism@4.1.0':
-    resolution: {integrity: sha512-zvRaL3MKTAXWfVQrHAlYtocRZWXBM6ruF3Bl7Lc7QgFHLRTfwMKo33KczlkvkXDY+qcytKhAWOT9dwUUYLUxAw==}
-    engines: {node: '>=22.22.0'}
+  '@astrojs/prism@4.1.1':
+    resolution: {integrity: sha512-sXlAXJX6t4QfuLg+CuCDzpg7NoxWcyb4paFprgtFppLeisCBmh935h+tJ5CWXfsXEoW2IDy/ihbRMtiu28Chjw==}
+    engines: {node: '>=22.23.4'}
 
   '@astrojs/telemetry@3.2.0':
     resolution: {integrity: sha512-wxhSKRfKugLwLlr4OFfcqovk+LIFtKwLyGPqMsv+9/ibqqnW3Gv7tBhtKEb0gAyUAC4G9BTVQeQahqnQAhd6IQ==}
@@ -317,9 +317,9 @@ packages:
     resolution: {integrity: sha512-UFBgfeldP06qu6khs/yY+q1cDAaArM2/7AEIqQ9Cuvf7B1hNLq0xDrZkct+QoIGyjq56y8IaE2I3CTvG99mlhQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
 
-  '@astrojs/telemetry@3.4.0':
-    resolution: {integrity: sha512-Qt2T6RGtYacyV8OZU3IcyFbsp69s6qIcnWvQvn7/p9MKebPCpEswP5Ji4RhifG3DfeBX7e07Pjj5smkd+Tfp7Q==}
-    engines: {node: '>=22.22.0'}
+  '@astrojs/telemetry@3.4.1':
+    resolution: {integrity: sha512-SMkvMsGOpM0FMAoT5pzhgI3LZC0JSPWf7Evwop+fZ3N6UkusPM7lI+sOJjMNI5OJrVoiei1/AGo1cY7sikTc5A==}
+    engines: {node: '>=22.23.4'}
 
   '@astrojs/underscore-redirects@1.0.4':
     resolution: {integrity: sha512-sD3bn7i2yC+ocxlhCTshdg3gUM471Nag3wgyHilA+kpmufokvmUu1p5Mw5GT5Xp8SPC1Nlq0BJAgV/lslnWvRw==}
@@ -2401,9 +2401,9 @@ packages:
     engines: {node: ^20.19.1 || >=22.12.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
-  astro@7.4.1:
-    resolution: {integrity: sha512-mzWNEWSef1VQDgFku6Gp0v8Qx53NOkNlOIDQcX9ovxAZ1QXic6cks/FFo+gxPM9anXuat4X1FhB61KTk3XFvgg==}
-    engines: {node: '>=22.22.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
+  astro@7.4.2:
+    resolution: {integrity: sha512-FAH4cdDlFaVnQGjazLTEIC5vJqGlo5XANc1wIbzQHIqAjJTll/RWTUs+SPNW1JdezG4YGxMZllaE5A41T2kzhA==}
+    engines: {node: '>=22.23.4', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     peerDependencies:
       '@astrojs/markdown-remark': ^7.3.0
@@ -4415,12 +4415,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@14.4.1(@types/node@22.20.5)(astro@7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(esbuild@0.28.2)(wrangler@4.151.2(@types/node@22.20.5))(yaml@2.9.1)':
+  '@astrojs/cloudflare@14.4.1(@types/node@22.20.5)(astro@7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(esbuild@0.28.2)(wrangler@4.151.2(@types/node@22.20.5))(yaml@2.9.1)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
       '@astrojs/underscore-redirects': 1.0.4
       '@cloudflare/vite-plugin': 1.64.0(@types/node@22.20.5)(vite@8.3.4(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(wrangler@4.151.2(@types/node@22.20.5))
-      astro: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+      astro: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       piccolore: 0.1.3
       prismjs: 1.30.0
       vite: 8.3.4(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
@@ -4587,10 +4587,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/markdown-satteri@0.4.4':
+  '@astrojs/markdown-satteri@0.4.5':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
-      '@astrojs/prism': 4.1.0
+      '@astrojs/prism': 4.1.1
       github-slugger: 2.0.0
       satteri: 0.10.5
 
@@ -4603,10 +4603,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@11.1.9(astro@7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(supports-color@10.2.2)':
+  '@astrojs/node@11.1.9(astro@7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(supports-color@10.2.2)':
     dependencies:
       '@astrojs/internal-helpers': 0.13.0
-      astro: 7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+      astro: 7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
       send: 1.2.1(supports-color@10.2.2)
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -4628,7 +4628,7 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/prism@4.1.0':
+  '@astrojs/prism@4.1.1':
     dependencies:
       prismjs: 1.30.0
 
@@ -4656,7 +4656,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/telemetry@3.4.0':
+  '@astrojs/telemetry@3.4.1':
     dependencies:
       ci-info: 4.4.0
       dset: 3.1.4
@@ -6267,12 +6267,12 @@ snapshots:
       - uploadthing
       - yaml
 
-  astro@7.4.1(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1):
+  astro@7.4.2(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1):
     dependencies:
       '@astrojs/compiler-rs': 0.5.1
       '@astrojs/internal-helpers': 0.13.0
-      '@astrojs/markdown-satteri': 0.4.4
-      '@astrojs/telemetry': 3.4.0
+      '@astrojs/markdown-satteri': 0.4.5
+      '@astrojs/telemetry': 3.4.1
       '@capsizecss/unpack': 4.0.1
       '@clack/prompts': 1.8.1
       '@oslojs/encoding': 1.1.0
