@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/abemedia/astro-cards/compare/v1.0.1...v1.0.2) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** upgrade takumi to 2.17.1 for more browser-accurate rendering ([#35](https://github.com/abemedia/astro-cards/issues/35)) ([3b79bfc](https://github.com/abemedia/astro-cards/commit/3b79bfc77d4c83d2809874e1afdbc49b9c64ea70))
+
 ## [1.0.1](https://github.com/abemedia/astro-cards/compare/v1.0.0...v1.0.1) (2026-09-10)
 
 
