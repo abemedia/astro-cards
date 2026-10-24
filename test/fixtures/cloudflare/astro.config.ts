@@ -1,6 +1,6 @@
-import cloudflare from '@astrojs/cloudflare'
-import { defineConfig, fontProviders } from 'astro/config'
-import cards from 'astro-cards'
+import cloudflare from '@astrojs/cloudflare';
+import { defineConfig, fontProviders } from 'astro/config';
+import cards from 'astro-cards';
 
 export default defineConfig({
   adapter: cloudflare(),
@@ -15,4 +15,4 @@ export default defineConfig({
       subsets: ['latin', 'cyrillic', 'greek'],
     },
   ],
-})
+});

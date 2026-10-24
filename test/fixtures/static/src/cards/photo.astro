@@ -1,14 +1,14 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from 'astro:assets';
 
 interface Props {
-  image: ImageMetadata
-  focal?: string
+  image: ImageMetadata;
+  focal?: string;
 }
 
-export const card = { width: 200, height: 200 }
+export const card = { width: 200, height: 200 };
 
-const { image, focal = 'left top' } = Astro.props
+const { image, focal = 'left top' } = Astro.props;
 ---
 
 <div class="card">

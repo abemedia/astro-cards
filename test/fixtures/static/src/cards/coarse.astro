@@ -1,14 +1,14 @@
 ---
-import { Font } from 'astro:assets'
+import { Font } from 'astro:assets';
 
 interface Props {
-  title?: string
+  title?: string;
 }
 
 // Identical to `plain` apart from this, so a size difference can only come from the cascade.
-export const card = { quality: 10 }
+export const card = { quality: 10 };
 
-const { title = 'plain' } = Astro.props
+const { title = 'plain' } = Astro.props;
 ---
 
 <Font cssVariable="--font-test" />

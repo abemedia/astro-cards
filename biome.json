@@ -1,18 +1,33 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": ["**", "!pnpm-lock.yaml", "!CHANGELOG.md"]
+  },
   "formatter": {
     "indentStyle": "space",
     "lineWidth": 100
   },
-  "javascript": {
+  "html": {
+    "experimentalFullSupportEnabled": true,
     "formatter": {
-      "quoteStyle": "single",
-      "semicolons": "asNeeded"
+      "enabled": true,
+      "selfCloseVoidElements": "always"
     }
   },
-  "html": {
-    "formatter": { "enabled": true },
-    "experimentalFullSupportEnabled": true
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "markdown": {
+    "formatter": {
+      "proseWrap": "always"
+    }
+  },
+  "yaml": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
   },
   "overrides": [
     {

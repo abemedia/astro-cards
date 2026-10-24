@@ -1,12 +1,12 @@
 ---
 interface Props {
-  title?: string
-  tone?: string
+  title?: string;
+  tone?: string;
 }
 
-export const card = { width: 400, height: 200 }
+export const card = { width: 400, height: 200 };
 
-const { title = 'untitled', tone = '#d98e4a' } = Astro.props
+const { title = 'untitled', tone = '#d98e4a' } = Astro.props;
 ---
 
 <div class="card" style={`background:${tone}`}>

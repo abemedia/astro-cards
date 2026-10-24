@@ -1,6 +1,6 @@
-import node from '@astrojs/node'
-import { defineConfig, fontProviders } from 'astro/config'
-import cards from 'astro-cards'
+import node from '@astrojs/node';
+import { defineConfig, fontProviders } from 'astro/config';
+import cards from 'astro-cards';
 
 export default defineConfig({
   adapter: node({ mode: 'standalone' }),
@@ -15,4 +15,4 @@ export default defineConfig({
       subsets: ['latin', 'cyrillic', 'greek'],
     },
   ],
-})
+});

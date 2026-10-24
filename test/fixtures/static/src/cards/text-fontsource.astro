@@ -1,15 +1,15 @@
 ---
-import roboto400 from '@fontsource/roboto/400.css?inline'
-import roboto700 from '@fontsource/roboto/700.css?inline'
+import roboto400 from '@fontsource/roboto/400.css?inline';
+import roboto700 from '@fontsource/roboto/700.css?inline';
 
 interface Props {
-  title?: string
-  tone?: string
+  title?: string;
+  tone?: string;
 }
 
-export const card = { width: 400, height: 200 }
+export const card = { width: 400, height: 200 };
 
-const { title = 'untitled', tone = '#d98e4a' } = Astro.props
+const { title = 'untitled', tone = '#d98e4a' } = Astro.props;
 ---
 
 <style set:html={roboto400 + roboto700}></style>

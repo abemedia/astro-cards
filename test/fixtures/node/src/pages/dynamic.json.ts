@@ -1,8 +1,8 @@
-import type { APIRoute } from 'astro'
-import { renderCard } from 'astro-cards/runtime'
-import photo from '../assets/photo.png'
+import type { APIRoute } from 'astro';
+import { renderCard } from 'astro-cards/runtime';
+import photo from '../assets/photo.png';
 
-export const prerender = false
+export const prerender = false;
 
 export const GET: APIRoute = async () => {
   const cards = {
@@ -11,7 +11,7 @@ export const GET: APIRoute = async () => {
     cropped: await renderCard('smoke', { image: photo }, { width: 200, height: 100 }),
     nested: await renderCard('nested/badge', {}),
     awkward: await renderCard('50%#top', {}),
-  }
+  };
 
-  return new Response(JSON.stringify(cards))
-}
+  return new Response(JSON.stringify(cards));
+};
