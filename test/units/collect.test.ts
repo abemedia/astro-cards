@@ -1,13 +1,13 @@
-import { fromHtml } from '@takumi-rs/helpers/html'
-import { describe, expect, test } from 'vitest'
-import { collectFonts, collectSources } from '../../src/render.js'
+import { fromHtml } from '@takumi-rs/helpers/html';
+import { describe, expect, test } from 'vitest';
+import { collectFonts, collectSources } from '../../src/render.js';
 
-const BASE = 'https://site.test/docs/'
+const BASE = 'https://site.test/docs/';
 
 const collect = (html: string) => {
-  const { node, css } = fromHtml(html)
-  return collectSources(node, css, BASE)
-}
+  const { node, css } = fromHtml(html);
+  return collectSources(node, css, BASE);
+};
 
 describe('collectSources', () => {
   test('reads every position takumi renders an image from, in document order', () => {
@@ -19,7 +19,7 @@ describe('collectSources', () => {
       <div style="mask-image: url(mask.png)"></div>
       <style>.a { background-image: url(sheet.png) }</style>
       <div class="a"></div>
-    `)
+    `);
 
     expect(found.keys().toArray()).toEqual([
       'photo.png',
@@ -29,39 +29,39 @@ describe('collectSources', () => {
       'second.png',
       'mask.png',
       'sheet.png',
-    ])
-  })
+    ]);
+  });
 
   test('never reads text, attributes or links', () => {
     const found = collect(`
       <p>see /docs/readme.png</p>
       <a href="/link.png">x</a>
       <img src="a.png" alt="/alt.png" />
-    `)
+    `);
 
-    expect(found.keys().toArray()).toEqual(['a.png'])
-  })
+    expect(found.keys().toArray()).toEqual(['a.png']);
+  });
 
   test('leaves font files to the font collector', () => {
     const found = collect(`
       <style>@font-face { font-family: R; src: url(/r.woff2) format("woff2") }</style>
       <img src="a.png" />
-    `)
+    `);
 
-    expect(found.keys().toArray()).toEqual(['a.png'])
-  })
+    expect(found.keys().toArray()).toEqual(['a.png']);
+  });
 
   test('does not read a comment', () => {
     const found = collect(`
       <style>/* was url(old.png) */ .a { background: url(new.png) }</style>
-    `)
+    `);
 
-    expect(found.keys().toArray()).toEqual(['new.png'])
-  })
+    expect(found.keys().toArray()).toEqual(['new.png']);
+  });
 
   test('reports a repeated reference once', () => {
-    expect(collect('<img src="a.png" /><img src="a.png" />').keys().toArray()).toEqual(['a.png'])
-  })
+    expect(collect('<img src="a.png" /><img src="a.png" />').keys().toArray()).toEqual(['a.png']);
+  });
 
   test('resolves each reference against the base', () => {
     const found = collect(`
@@ -70,7 +70,7 @@ describe('collectSources', () => {
       <img src="/root.png" />
       <img src="//cdn.test/x.png" />
       <img src="https://other.test/y.png" />
-    `)
+    `);
 
     expect(found.values().toArray()).toEqual([
       'https://site.test/docs/photo.png',
@@ -78,46 +78,46 @@ describe('collectSources', () => {
       'https://site.test/root.png',
       'https://cdn.test/x.png',
       'https://other.test/y.png',
-    ])
-  })
+    ]);
+  });
 
   test('decodes character references in markup but not in a stylesheet', () => {
     const found = collect(`
       <img src="/x?a=1&amp;b=2&#x2F;c&#39;d" />
       <div style="background: url(/y?a=1&amp;b=2)"></div>
       <style>.a { background: url(/z?a=1&amp;b=2) }</style>
-    `)
+    `);
 
     expect(found.entries().toArray()).toEqual([
       ["/x?a=1&b=2/c'd", 'https://site.test/x?a=1&b=2/c%27d'],
       ['/y?a=1&b=2', 'https://site.test/y?a=1&b=2'],
       ['/z?a=1&amp;b=2', 'https://site.test/z?a=1&amp;b=2'],
-    ])
-  })
+    ]);
+  });
 
   test('leaves data URIs to takumi and SVG references alone', () => {
     const found = collect(`
       <img src="data:image/png;base64,AAAA" />
       <div style="background: url(#gradient)"></div>
-    `)
+    `);
 
-    expect(found.size).toBe(0)
-  })
+    expect(found.size).toBe(0);
+  });
 
   test('refuses a scheme nothing can fetch', () => {
-    expect(() => collect('<img src="file:///etc/passwd" />')).toThrow(/unsupported image URL/)
-  })
+    expect(() => collect('<img src="file:///etc/passwd" />')).toThrow(/unsupported image URL/);
+  });
 
   test('does not mutate the tree', () => {
-    const { node, css } = fromHtml('<div style="background: url(a.png)"><img src="b.png" /></div>')
-    const before = JSON.stringify(node)
-    collectSources(node, css, BASE)
-    expect(JSON.stringify(node)).toBe(before)
-  })
-})
+    const { node, css } = fromHtml('<div style="background: url(a.png)"><img src="b.png" /></div>');
+    const before = JSON.stringify(node);
+    collectSources(node, css, BASE);
+    expect(JSON.stringify(node)).toBe(before);
+  });
+});
 
 describe('collectFonts', () => {
-  const faces = (css: string) => collectFonts([css], BASE)
+  const faces = (css: string) => collectFonts([css], BASE);
 
   test('reads a face the way Astro emits it', () => {
     const found = faces(`
@@ -129,7 +129,7 @@ describe('collectFonts', () => {
         font-style: normal;
         unicode-range: U+0000-00FF, U+20AC;
       }
-    `)
+    `);
 
     expect(found).toEqual([
       {
@@ -145,14 +145,14 @@ describe('collectFonts', () => {
           [0x20ac, 0x20ac],
         ],
       },
-    ])
-  })
+    ]);
+  });
 
   test('expands a wildcard range', () => {
-    const [face] = faces('@font-face { font-family: R; src: url(a.woff2); unicode-range: U+30?? }')
+    const [face] = faces('@font-face { font-family: R; src: url(a.woff2); unicode-range: U+30?? }');
 
-    expect(face?.unicodeRange).toEqual([[0x3000, 0x30ff]])
-  })
+    expect(face?.unicodeRange).toEqual([[0x3000, 0x30ff]]);
+  });
 
   test('registers every subset and weight under the family name', () => {
     const found = faces(`
@@ -160,14 +160,14 @@ describe('collectFonts', () => {
       @font-face { font-family: R; src: url(l400.woff2); font-weight: 400; unicode-range: U+0000-00FF }
       @font-face { font-family: R; src: url(c400.woff2); font-weight: 400; unicode-range: U+0400-045F }
       @font-face { font-family: R; src: url(l700.woff2); font-weight: 700; unicode-range: U+0000-00FF }
-    `)
+    `);
 
     expect(found.map(({ name, weight, unicodeRange }) => [name, weight, unicodeRange])).toEqual([
       ['R', 400, [[0, 0xff]]],
       ['R', 400, [[0x400, 0x45f]]],
       ['R', 700, [[0, 0xff]]],
-    ])
-  })
+    ]);
+  });
 
   test('collapses only the faces that differ by weight alone', () => {
     const found = faces(`
@@ -178,7 +178,7 @@ describe('collectFonts', () => {
       @font-face { font-family: S; src: url(s400.woff2); font-weight: 400 }
       @font-face { font-family: S; src: url(s700.woff2); font-weight: 700 }
       @font-face { font-family: V; src: url(v.woff2); font-weight: 400; font-style: normal; unicode-range: U+0400-045F }
-    `)
+    `);
 
     expect(
       found.map(({ name, style, weight, unicodeRange }) => [name, style, weight, unicodeRange]),
@@ -189,22 +189,22 @@ describe('collectFonts', () => {
       ['S', undefined, 400, []],
       ['S', undefined, 700, []],
       ['V', 'normal', 400, [[0x400, 0x45f]]],
-    ])
-  })
+    ]);
+  });
 
   test('finds the file behind local() sources listed first', () => {
     const [face] = faces(`
       @font-face { font-family: R; src: local("R"), local("R-Regular"), url(/r.woff2) format("woff2") }
-    `)
+    `);
 
-    expect(face?.url).toBe('https://site.test/r.woff2')
-  })
+    expect(face?.url).toBe('https://site.test/r.woff2');
+  });
 
   test('skips a face with no file, such as an optimised local fallback', () => {
     const found = faces(`
       @font-face { font-family: "R fallback"; src: local("Arial"); size-adjust: 107% }
-    `)
+    `);
 
-    expect(found).toEqual([])
-  })
-})
+    expect(found).toEqual([]);
+  });
+});

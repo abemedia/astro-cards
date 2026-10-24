@@ -1,11 +1,11 @@
 ---
 interface Props {
-  seat: number
+  seat: number;
 }
 
-export const card = { width: 300, height: 150 }
+export const card = { width: 300, height: 150 };
 
-const { seat } = Astro.props
+const { seat } = Astro.props;
 ---
 
 <div style="width:300px;height:150px;display:flex;color:#fff;background:#333">{seat}</div>

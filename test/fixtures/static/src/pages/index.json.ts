@@ -1,6 +1,6 @@
-import type { APIRoute } from 'astro'
-import { renderCard } from 'astro-cards/runtime'
-import photo from '../assets/photo.png'
+import type { APIRoute } from 'astro';
+import { renderCard } from 'astro-cards/runtime';
+import photo from '../assets/photo.png';
 
 export const GET: APIRoute = async () => {
   const cards = {
@@ -18,7 +18,7 @@ export const GET: APIRoute = async () => {
     webp: await renderCard('plain', {}, { format: 'webp' }),
     jpeg: await renderCard('plain', { title: 'jpeg' }, { format: 'jpeg' }),
     lowQuality: await renderCard('plain', { title: 'jpeg' }, { format: 'jpeg', quality: 10 }),
-  }
+  };
 
-  return new Response(JSON.stringify(cards))
-}
+  return new Response(JSON.stringify(cards));
+};

@@ -1,14 +1,14 @@
 ---
-import { Font } from 'astro:assets'
+import { Font } from 'astro:assets';
 
 interface Props {
-  title?: string
-  tone?: string
+  title?: string;
+  tone?: string;
 }
 
-export const card = { width: 400, height: 200 }
+export const card = { width: 400, height: 200 };
 
-const { title = 'untitled', tone = '#d98e4a' } = Astro.props
+const { title = 'untitled', tone = '#d98e4a' } = Astro.props;
 ---
 
 <Font cssVariable="--font-test" />
