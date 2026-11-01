@@ -5,7 +5,7 @@
   "type": "module",
   "devDependencies": {
     "@fontsource/roboto": "^5.2.0",
-    "astro": "^7.4.1",
+    "astro": "^7.4.4",
     "astro-cards": "workspace:*"
   }
 }
