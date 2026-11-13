@@ -5,7 +5,7 @@
   "type": "module",
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "astro": "^7.4.4",
+    "astro": "^7.4.7",
     "astro-cards": "workspace:*",
     "typescript": "^6.0.3"
   }
